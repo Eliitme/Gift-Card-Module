@@ -1,0 +1,55 @@
+<?php
+/** @var \Mageplaza\GiftCard\Block\Customer\Code\Redeem $block */
+?>
+
+    <div class="block block-redeem">
+        <div class="box box-actions">
+            <strong class="box-title">
+                <span><?= $block->escapeHtml(__('Redeem')) ?></span>
+            </strong>
+            <div class="box-content">
+                <form class="form form-redeem" action="<?= $block->getUrl('giftcard/customer/redeem') ?>" method="post"
+                      id="form-validate" enctype="multipart/form-data"
+                      data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>" autocomplete="off">
+                    <?= $block->getBlockHtml('formkey') ?>
+                    <fieldset class="fieldset redeem">
+                        <div class="field code required">
+                            <div class="control">
+                                <input type="text" class="input-text" name="code_redeem" id="code_redeem" autocomplete="off"
+                                       placeholder="Enter gift card code"/>
+                            </div>
+                            <div class="error"></div>
+                        </div>
+                        <div class="action">
+                            <div class="primary">
+                                <button type="submit" class="action primary"
+                                        title="<?= $block->escapeHtmlAttr(__('Redeem')) ?>">
+                                    <span><?= $block->escapeHtml(__('Redeem')) ?></span></button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+<script type="text/javascript">
+    require([
+        'jquery',
+        'mage/mage'
+    ], function ($) {
+        var dataForm = $('#form-validate');
+        dataForm.mage('validation', {
+            "rules": {
+                "code_redeem": {
+                    "required": true
+                }
+            },
+            "messages": {
+                "code_redeem": "Please input a valid gift card code!"
+            }
+        });
+    });
+</script>
+

@@ -1,0 +1,18 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  layout="2columns-left" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <body>
+        <referenceBlock name="page.main.title">
+            <action method="setPageTitle">
+                <argument translate="true" name="title" xsi:type="string">My Gift Card</argument>
+            </action>
+        </referenceBlock>
+        <referenceContainer name="content">
+            <block class="Mageplaza\GiftCard\Block\Customer\Code\Index" name="customer" as="customer" template="Mageplaza_GiftCard::customer.phtml" cacheable="false">
+            </block>
+            <block class="Mageplaza\GiftCard\Block\Customer\Code\Redeem" name="redeem" as="redeem" template="Mageplaza_GiftCard::redeem.phtml" cacheable="false" ifconfig="giftcard/general/allow_redeem_gift_card">
+            </block>
+            <block class="Mageplaza\GiftCard\Block\Customer\Code\History" name="history" as="history" template="Mageplaza_GiftCard::history.phtml" cacheable="false">
+            </block>
+        </referenceContainer>
+    </body>
+</page>

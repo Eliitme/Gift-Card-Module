@@ -1,0 +1,42 @@
+<?php
+
+/** @var \Mageplaza\GiftCard\Block\Customer\Code\Index $block */
+
+?>
+
+<style>
+    .block-balance-giftcard {
+        width: 60%;
+        position: relative;
+    }
+
+    .block-redeem {
+        width: 40%;
+        position: relative;
+    }
+
+    .code {
+        width: 75%;
+        position: relative;
+        float: left;
+    }
+    .block-dashboard-info {
+        display: flex;
+    }
+</style>
+<div class="block block-title">
+    <div class="block-title"><strong><?= $block->escapeHtml(__('Gift Card Information')) ?></strong></div>
+</div>
+<div class="block block-dashboard-info">
+    <div class="block block-balance-giftcard">
+        <div class="block-content">
+            <div class="box box-information">
+                <strong class="box-title">
+                    <span><?= $block->escapeHtml(__('Balance')) ?></span>
+                </strong>
+                <div class="box-content">
+                    <h2><?= $block->getBalanceCustomer() ?></h2>
+                </div>
+            </div>
+        </div>
+    </div>

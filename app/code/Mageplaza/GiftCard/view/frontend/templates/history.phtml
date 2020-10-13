@@ -1,0 +1,56 @@
+<?php
+/** @var \Mageplaza\GiftCard\Block\Customer\Code\History $block */
+
+?>
+</div>
+<div class="block block-history">
+    <?php
+    $_history = $block->getHistory();
+    $count = count($_history);
+    ?>
+    <div class="block-title">
+        <strong><?= $block->escapeHtml(__('History')) ?></strong>
+        <?php if ($count > 0) : ?>
+            <a class="action view" href="<?= $block->escapeUrl($block->getUrl('giftcard/customer/history')) ?>">
+                <span><?= $block->escapeHtml(__('View All')) ?></span>
+            </a>
+        <?php endif; ?>
+    </div>
+    <div class="block-content">
+        <?php if ($count > 0) : ?>
+            <div class="table-wrapper history">
+                <table class="data table recent" id="my-history-table">
+                    <caption class="table-caption"><?= $block->escapeHtml(__('Recent Orders')) ?></caption>
+                    <thead>
+                    <tr>
+                        <th scope="col" class="col _info"><?= $block->escapeHtml(__('Date')) ?></th>
+                        <th scope="col" class="col _info"><?= $block->escapeHtml(__('Code')) ?></th>
+                        <th scope="col" class="col _info"><?= $block->escapeHtml(__('Amount')) ?></th>
+                        <th scope="col" class="col _info"><?= $block->escapeHtml(__('Action')) ?></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($_history as $_history) : ?>
+                        <tr>
+                            <td data-th="<?= $block->escapeHtmlAttr(__('Date')) ?>"
+                                class="col _info"><?= $block->formatDate($_history->getActionTime()) ?></td>
+                            <td data-th="<?= $block->escapeHtmlAttr(__('Code')) ?>"
+                                class="col _info"><?= $block->escapeHtml($_history->getCode()) ?></td>
+                            <td data-th="<?= $block->escapeHtmlAttr(__('Amount')) ?>"
+                                class="col _info"><?= $block->setPrice($_history->getAmount()) ?></td>
+                            <td data-th="<?= $block->escapeHtmlAttr(__('Action')) ?>"
+                                class="col _info"><?= $block->escapeHtml(ucfirst($_history->getAction())) ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        <?php else: ?>
+            <div class="message info empty">
+                <span><?= $block->escapeHtml(__('You have used no gift card.')) ?></span>
+            </div>
+        <?php endif ?>
+    </div>
+</div>
+
+
