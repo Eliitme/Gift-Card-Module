@@ -64,12 +64,7 @@ class PlaceOrder implements \Magento\Framework\Event\ObserverInterface
         // TODO: Implement execute() method.
         $order = $observer->getEvent()->getData('order');
 
-//        $test = $observer->getEvent()->getData('order');
-//        $writer = new \Zend\Log\Writer\Stream(BP. '/var/log/test.log');
-//        $logger = new \Zend\Log\Logger();
-//        $logger->addWriter($writer);
-//        $logger->info('Observer');
-//
+
 //        $logger->info(json_encode($test->getData()));
 
         $incrementId = $order->getIncrementId();

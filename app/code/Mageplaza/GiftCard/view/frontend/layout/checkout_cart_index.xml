@@ -1,4 +1,10 @@
 <?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceBlock name="checkout.cart.totals">
@@ -11,7 +17,7 @@
                                     <item name="component"  xsi:type="string">Mageplaza_GiftCard/js/view/checkout/summary/customdiscount</item>
                                     <item name="sortOrder" xsi:type="string">20</item>
                                     <item name="config" xsi:type="array">
-                                        <item name="custom_discount" xsi:type="string" translate="true">Custom Discount</item>
+                                        <item name="custom_discount" xsi:type="string" translate="true">Gift Card</item>
                                     </item>
                                 </item>
                             </item>
